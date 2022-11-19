@@ -4,7 +4,6 @@ public class AddTwoNumbersLinkedList {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode LN1 = new ListNode();
         ListNode Returning = LN1;
-        LN1.val = 0;
         int carry = 0;
         int x=0,y=0;
 
@@ -27,7 +26,13 @@ public class AddTwoNumbersLinkedList {
             l1 = l1.next;}
             if(l2!=null){
             l2 = l2.next;}
-            LN1.next = new ListNode(carry);
+            //LN1.next = (carry == 1) ? new ListNode(carry):new ListNode();
+            if(carry == 1){
+                LN1.next = new ListNode(carry);
+            }
+            else{
+                LN1.next = new ListNode();
+            }
             LN1 = LN1.next;
         };
         return Returning;
@@ -48,7 +53,7 @@ public class AddTwoNumbersLinkedList {
         ListNode l13 = new ListNode();
         ListNode l14 = new ListNode();
         ListNode l15 = new ListNode();
-        //ListNode l16 = new ListNode();
+        ListNode l16 = new ListNode();
         //ListNode l17 = new ListNode();
         //ListNode l18 = new ListNode();
 
@@ -61,8 +66,8 @@ public class AddTwoNumbersLinkedList {
         l14.val = 9;
         l14.next = l15;
         l15.val = 2;
-        //l15.next = l16;
-        //l16.val = 0;
+        l15.next = l16;
+        l16.val = 0;
         //l16.next = l17;
         //l17.val = 1;
         //l17.next = l18;
