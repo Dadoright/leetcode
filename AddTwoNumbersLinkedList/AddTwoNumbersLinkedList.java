@@ -2,40 +2,30 @@ package AddTwoNumbersLinkedList;
 public class AddTwoNumbersLinkedList {
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode LN1 = new ListNode();
+        ListNode LN1 = new ListNode(0);
         ListNode Returning = LN1;
         int carry = 0;
         int x=0,y=0;
 
         //ListNode temp1 = new ListNode(l1.val);
 
-        while(l1!=null || l2!=null){
+        while(l1!=null || l2!=null || carry != 0){
             
             x = (l1!=null)?l1.val:0;
             y = (l2!=null)?l2.val:0;
 
-            if(x+y+carry >= 10){
-                LN1.val = (x+y+LN1.val) %10;
-                carry = 1;
-            }
-            else{
-                LN1.val = x+y+LN1.val;
-                carry = 0;
-            }
+            int sum = x+y+carry;
+            carry = sum/10;
+
             if(l1!=null){
             l1 = l1.next;}
             if(l2!=null){
             l2 = l2.next;}
             //LN1.next = (carry == 1) ? new ListNode(carry):new ListNode();
-            if(carry == 1){
-                LN1.next = new ListNode(carry);
-            }
-            else{
-                LN1.next = new ListNode();
-            }
+            LN1.next = new ListNode(sum %10);
             LN1 = LN1.next;
         };
-        return Returning;
+        return Returning.next;
     }
 
     public static void printList(ListNode ln){
