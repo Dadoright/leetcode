@@ -11,23 +11,24 @@ public class AddTwoNumbersLinkedList {
         //ListNode temp1 = new ListNode(l1.val);
 
         while(l1!=null || l2!=null){
-            if(l1!=null){
-                x = l1.val;
-            }
-            else{
-                x=0;
-            }
-            y = l2.val;
+            
+            x = (l1!=null)?l1.val:0;
+            y = (l2!=null)?l2.val:0;
+
             if(x+y+carry >= 10){
-                LN1.val = x+y+carry %10;
+                LN1.val = (x+y+LN1.val) %10;
                 carry = 1;
             }
             else{
-                LN1.val = x+y+carry;
+                LN1.val = x+y+LN1.val;
                 carry = 0;
             }
-            l1 = l1.next;
-            l2 = l2.next;
+            if(l1!=null){
+            l1 = l1.next;}
+            if(l2!=null){
+            l2 = l2.next;}
+            LN1.next = new ListNode(carry);
+            LN1 = LN1.next;
         };
         return Returning;
     }
@@ -46,7 +47,7 @@ public class AddTwoNumbersLinkedList {
         ListNode l12 = new ListNode();
         ListNode l13 = new ListNode();
         ListNode l14 = new ListNode();
-        //ListNode l15 = new ListNode();
+        ListNode l15 = new ListNode();
         //ListNode l16 = new ListNode();
         //ListNode l17 = new ListNode();
         //ListNode l18 = new ListNode();
@@ -58,8 +59,8 @@ public class AddTwoNumbersLinkedList {
         l13.val = 7;
         l13.next = l14;
         l14.val = 9;
-        //l14.next = l15;
-        //l15.val = 2;
+        l14.next = l15;
+        l15.val = 2;
         //l15.next = l16;
         //l16.val = 0;
         //l16.next = l17;
@@ -82,9 +83,10 @@ public class AddTwoNumbersLinkedList {
         l23.next = l24;
         l24.val = 0;
 
-        //ListNode l3 = addTwoNumbers(l1,l2);
+        ListNode l3 = addTwoNumbers(l1,l2);
         printList(l1);
         printList(l2);
+        printList(l3);
 
 
     }
