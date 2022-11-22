@@ -5,9 +5,7 @@ public class IsPalindrome {
         boolean value;
         while(reversing>0){
             inverse = (inverse*10)+(reversing%10);
-            //System.out.println(inverse);
             reversing = reversing/10;
-            //System.out.println(reversing);
         } 
 
         value = (inverse == a) ? true:false;
