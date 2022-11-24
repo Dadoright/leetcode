@@ -1,4 +1,4 @@
-//This answer seems wrong
+# This answer seems wrong
 
 import sys
 
